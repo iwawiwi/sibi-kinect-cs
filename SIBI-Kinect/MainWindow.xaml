@@ -11,8 +11,8 @@
         <Image Height="198" HorizontalAlignment="Left" Margin="303,324,0,0" Name="imageRightHand" Stretch="Fill" VerticalAlignment="Top" Width="237" Grid.Column="1" />
         <Image Height="198" HorizontalAlignment="Left" Margin="57,324,0,0" Name="imageLeftHand" Stretch="Fill" VerticalAlignment="Top" Width="237" Grid.ColumnSpan="2" />
         <TextBox Height="23" HorizontalAlignment="Right" Margin="0,427,344,0" Name="stableTextBox" VerticalAlignment="Top" Width="120" Grid.Column="1" />
-        <TextBlock Height="23" HorizontalAlignment="Left" Margin="128,398,0,0" Name="statusBarText" Text="textblock" VerticalAlignment="Top" Width="112" Grid.Column="1" />
-        <Button Content="Not Recording" Height="23" HorizontalAlignment="Left" Margin="128,465,0,0" Name="recordingButton" VerticalAlignment="Top" Width="140" Click="recordingButton_Click" Grid.Column="1" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="120,398,0,0" Name="statusBarText" Text="" VerticalAlignment="Top" Width="157" Grid.Column="1" />
+        <Button Content="Not Recording" Height="23" HorizontalAlignment="Left" Margin="120,456,0,0" Name="recordingButton" VerticalAlignment="Top" Width="140" Click="recordingButton_Click" Grid.Column="1" />
         <TabControl Height="118" HorizontalAlignment="Left" Margin="24,526,0,0" Name="tabControl1" VerticalAlignment="Top" Width="730" Grid.ColumnSpan="2">
             <TabItem Header="Moving" Name="tabItem1">
                 <Grid Height="82" Width="702">
