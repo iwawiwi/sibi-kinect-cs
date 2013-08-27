@@ -478,17 +478,19 @@ namespace SIBI_Kinect
 
                     if (drawRightColorHand2)
                     {
-                        this.colorWriteableBitmap.CopyPixels(
-                       rightHandRect2,
-                       croppedPixelsRight,
-                       strideRight,
-                       0);
-
-                        this.newRightHandColorBitmap.WritePixels(
-                            new Int32Rect(0, 0, widthRight, heightRight),
-                            croppedPixelsRight,
+                        {
+                            this.colorWriteableBitmap.CopyPixels(
+                                rightHandRect2,
+                                croppedPixelsRight,
                                 strideRight,
-                            0);
+                                0);
+
+                            this.newRightHandColorBitmap.WritePixels(
+                                new Int32Rect(0, 0, widthRight, heightRight),
+                                croppedPixelsRight,
+                                strideRight,
+                                0);
+                        }
                     }
 
                     if (drawLeftColorHand)
@@ -551,78 +553,6 @@ namespace SIBI_Kinect
                 int height = rightHandWriteableDepthBitmap.PixelHeight;
                 int stride = width * (rightHandWriteableDepthBitmap.Format.BitsPerPixel / 8);
                 byte[] croppedPixels = new byte[height * stride];
-
-                #region otsu test
-                //Right Otsu Threshold
-                /*
-                if (rightHandDepthPoint.X - leftHandWriteableDepthBitmap.PixelWidth/2 > 0 &&
-                   rightHandDepthPoint.Y - leftHandWriteableDepthBitmap.PixelHeight/2 > 0 &&
-                   rightHandDepthPoint.X + leftHandWriteableDepthBitmap.PixelWidth/2 < depthWriteableBitmap.PixelWidth &&
-                   rightHandDepthPoint.Y + leftHandWriteableDepthBitmap.PixelHeight/2 < depthWriteableBitmap.PixelHeight)
-                {
-                    int xMin = rightHandDepthPoint.X - 60;
-                    int xMax = rightHandDepthPoint.X + 60;
-                    int yMin = rightHandDepthPoint.Y - 60;
-                    int yMax = rightHandDepthPoint.Y + 60;
-
-                    //-----------
-                    System.Diagnostics.Debug.WriteLine("Pos : " + rightHandDepthPoint.X + "-" + rightHandDepthPoint.Y);
-                    StringBuilder sb = new StringBuilder();
-                    List<String> line = new List<String>();
-                    //-----------
-
-                    for (int y = yMin; y < yMax; y++) 
-                    {
-                        for (int x = xMin; x < xMax; x++)
-                        {
-                            depthRightHandList.Add(depthPixels[(y * 640) + x].Depth);
-                            //-------------------
-                            line.Add(depthPixels[(y * 640) + x].Depth.ToString()); 
-                            //-------------------
-                        }
-                        //-------------------
-                        sb.AppendLine(String.Join(",", line.ToArray()));
-                        line.Clear();
-                        //-------------------
-                    }
-
-                    //---------
-                    string filePath = FileWriter.SIBIPATH + gerakanTextbox.Text;
-                    Directory.CreateDirectory(filePath);
-                    string fileName = "righthand" + fN + ".csv";
-                    string path = System.IO.Path.Combine(filePath, fileName);
-                    File.AppendAllText(path, sb.ToString());
-                    //--------
-
-                    maxDepthLeft = otsuThreshold.doOtsu(depthRightHandList, croppedPixels.Length, gerakanTextbox.Text);
-
-                    for (int i = 0; i < depthRightHandList.Count; ++i)
-                    {
-                        short depthLeft = depthRightHandList[i];
-
-                        if (depthLeft >= minDepthLeft && depthLeft <= maxDepthLeft)
-                        {
-                            croppedPixels[depthColorPixelIndexLeft++] = 0xFF;
-                            croppedPixels[depthColorPixelIndexLeft++] = 0xFF;
-                            croppedPixels[depthColorPixelIndexLeft++] = 0xFF;
-                        }
-                        else
-                        {
-                            croppedPixels[depthColorPixelIndexLeft++] = 0x00;
-                            croppedPixels[depthColorPixelIndexLeft++] = 0x00;
-                            croppedPixels[depthColorPixelIndexLeft++] = 0x00;
-                        }
-                        ++depthColorPixelIndexLeft;
-                    }
-
-                    this.leftHandWriteableDepthBitmap.WritePixels(
-                        new Int32Rect(0, 0, width, height),
-                        croppedPixels,
-                            stride,
-                        0);
-                }
-                */
-                #endregion
 
                 //Right hand normal threshold method
                 for (int i = 0; i < this.depthPixels.Length; ++i)
@@ -886,15 +816,12 @@ namespace SIBI_Kinect
             }
             else
             {
-                fileWriterV2.writeEverything(gerakanTextbox.Text, Double.Parse(jumlahFrameTextBox.Text));
-                //fileWriterV2.writeEverything(gerakanTextbox.Text, Double.Parse("60"));
-                //fileWriterV2.writeEverything(gerakanTextbox.Text, Double.Parse("40"));
-                //fileWriterV2.writeEverything(gerakanTextbox.Text, Double.Parse("30"));
-                //fileWriterV2.writeEverything(gerakanTextbox.Text, Double.Parse("20"));
-                //fileWriterV2.writeEverything(gerakanTextbox.Text, Double.Parse("10"));
-                //fileWriterV2.writeEverything(gerakanTextbox.Text, Double.Parse("5"));
-                fileWriterV2.clearWordData();
-
+                // kinect sensor connected and all field are filled with some value
+                if (this.sensor != null && gerakanTextbox.Text != null && jumlahFrameTextBox.Text != null)
+                {
+                    fileWriterV2.writeEverything(gerakanTextbox.Text, Double.Parse(jumlahFrameTextBox.Text));
+                    fileWriterV2.clearWordData();
+                }
                 recordingButton.Content = "Not Recording";
                 recordingButton.Background = Brushes.Gray;
             }
@@ -1361,24 +1288,17 @@ namespace SIBI_Kinect
 
         private void textBox1_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            //TODO: need implementation or should be removed
         }
 
         private void comboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            //TODO: need implementation or should be removed
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
             MatlabConnection.seeGraph(textBox1.Text, Int32.Parse(comboBox1.SelectionBoxItem.ToString()));
         }
-
-      
-
-        
-
-
-
     }
 }
