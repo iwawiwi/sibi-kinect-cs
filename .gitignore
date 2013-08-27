@@ -1,4 +1,4 @@
 
-/SIBI-Kinect/obj/x86/Debug
-/SIBI-Kinect/bin
-/SIBI-Kinect/obj
+/SIBI-Kinect/obj/x86/Debug/*
+/SIBI-Kinect/bin/*
+/SIBI-Kinect/obj/*

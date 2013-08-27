@@ -117,3 +117,8 @@ D:\Dropbox\Research Assistant\SIBI\VS 2010 Project\SIBI-Kinect\SIBI-Kinect\obj\x
 D:\Dropbox\Research Assistant\SIBI\VS 2010 Project\SIBI-Kinect\SIBI-Kinect\obj\x86\Debug\GenerateResource.write.1.tlog
 D:\Dropbox\Research Assistant\SIBI\VS 2010 Project\SIBI-Kinect\SIBI-Kinect\obj\x86\Debug\SIBI-Kinect.exe
 D:\Dropbox\Research Assistant\SIBI\VS 2010 Project\SIBI-Kinect\SIBI-Kinect\obj\x86\Debug\SIBI-Kinect.pdb
+C:\Users\iwawiwi\Documents\GitHub\sibi-kinect-cs\SIBI-Kinect\bin\Debug\SIBI-Kinect.exe.config
+C:\Users\iwawiwi\Documents\GitHub\sibi-kinect-cs\SIBI-Kinect\obj\x86\Debug\Interop.MLApp.dll
+C:\Users\iwawiwi\Documents\GitHub\sibi-kinect-cs\SIBI-Kinect\obj\x86\Debug\SIBI-Kinect.csproj.ResolveComReference.cache
+C:\Users\iwawiwi\Documents\GitHub\sibi-kinect-cs\SIBI-Kinect\obj\x86\Debug\SIBI-Kinect.exe
+C:\Users\iwawiwi\Documents\GitHub\sibi-kinect-cs\SIBI-Kinect\obj\x86\Debug\SIBI-Kinect.pdb
